@@ -19,7 +19,7 @@
 
 //NOTE: if having problems loading VHD you could try to load first VHD and then the ROM
 
-
+/*
 // Initial ROM   //Hack to show OSD at core bootup
 const char *bootrom_name="AUTOBOOTNES";
 extern unsigned char romtype=0;
@@ -33,4 +33,4 @@ char *autoboot()
 		result="Show/hide OSD = key F12";
 	return(result);
 }
-
+*/

@@ -243,7 +243,7 @@ joy: joydecoder
 
 guest: COMPONENT  mist_top
   port map (
-    CLOCK_27 => clock_50_i&clock_50_i,
+    CLOCK_27 => clock_50_i,
     LED => LED,
 	--SPI
 	SPI_DO => spi_fromguest,

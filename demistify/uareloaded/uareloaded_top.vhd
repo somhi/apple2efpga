@@ -195,7 +195,7 @@ dac_r_s <= ((not dac_r(9)) & dac_r(8 downto 0) & dac_r(9 downto 4));
 guest:  COMPONENT mist_top
 	PORT map
 	(
-		CLOCK_27 => CLOCK_50 & CLOCK_50,
+		CLOCK_27 => CLOCK_50,
 		--RESET_N => reset_n,
 		-- clocks
 		SDRAM_DQ => DRAM_DQ,

@@ -1,0 +1,612 @@
+[
+ {
+  "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+  "InstLine" : 4,
+  "InstName" : "arcade_inputs",
+  "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+  "ModuleLine" : 4,
+  "ModuleName" : "arcade_inputs",
+  "SubInsts" : [
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+    "InstLine" : 53,
+    "InstName" : "r1",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+    "ModuleLine" : 152,
+    "ModuleName" : "control_rotator"
+   },
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+    "InstLine" : 54,
+    "InstName" : "r2",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+    "ModuleLine" : 152,
+    "ModuleName" : "control_rotator"
+   },
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+    "InstLine" : 55,
+    "InstName" : "r3",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+    "ModuleLine" : 152,
+    "ModuleName" : "control_rotator"
+   },
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+    "InstLine" : 56,
+    "InstName" : "r4",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+    "ModuleLine" : 152,
+    "ModuleName" : "control_rotator"
+   }
+  ]
+ },
+ {
+  "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+  "InstLine" : 170,
+  "InstName" : "input_toggle",
+  "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/arcade_inputs.v",
+  "ModuleLine" : 170,
+  "ModuleName" : "input_toggle"
+ },
+ {
+  "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/data_io.v",
+  "InstLine" : 24,
+  "InstName" : "data_io",
+  "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/data_io.v",
+  "ModuleLine" : 24,
+  "ModuleName" : "data_io"
+ },
+ {
+  "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+  "InstLine" : 36,
+  "InstName" : "dualshock_controller",
+  "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+  "ModuleLine" : 36,
+  "ModuleName" : "dualshock_controller",
+  "SubInsts" : [
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+    "InstLine" : 86,
+    "InstName" : "pls",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+    "ModuleLine" : 477,
+    "ModuleName" : "ps_pls_gan"
+   },
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+    "InstLine" : 107,
+    "InstName" : "cmd",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+    "ModuleLine" : 245,
+    "ModuleName" : "txd_commnd"
+   },
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+    "InstLine" : 140,
+    "InstName" : "txd",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+    "ModuleLine" : 628,
+    "ModuleName" : "ps_txd"
+   },
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+    "InstLine" : 151,
+    "InstName" : "rxd",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+    "ModuleLine" : 603,
+    "ModuleName" : "ps_rxd"
+   }
+  ]
+ },
+ {
+  "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+  "InstLine" : 191,
+  "InstName" : "txd_commnd_EZ",
+  "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/dualshock_controller.v",
+  "ModuleLine" : 191,
+  "ModuleName" : "txd_commnd_EZ"
+ },
+ {
+  "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/timer_controller.vhd",
+  "InstLine" : 25,
+  "InstName" : "timer_controller",
+  "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/timer_controller.vhd",
+  "ModuleLine" : 25,
+  "ModuleName" : "timer_controller"
+ },
+ {
+  "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/vol_table_array.vhd",
+  "InstLine" : 6,
+  "InstName" : "vol_table",
+  "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/vol_table_array.vhd",
+  "ModuleLine" : 6,
+  "ModuleName" : "vol_table"
+ },
+ {
+  "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/spram.vhd",
+  "InstLine" : 9,
+  "InstName" : "spram",
+  "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/spram.vhd",
+  "ModuleLine" : 9,
+  "ModuleName" : "spram"
+ },
+ {
+  "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/tangnano20k_top.vhd",
+  "InstLine" : 10,
+  "InstName" : "tangnano20k_top",
+  "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/tangnano20k_top.vhd",
+  "ModuleLine" : 10,
+  "ModuleName" : "tangnano20k_top",
+  "SubInsts" : [
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/tangnano20k_top.vhd",
+    "InstLine" : 199,
+    "InstName" : "U4",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_hdmi_out.v",
+    "ModuleLine" : 23,
+    "ModuleName" : "svo_hdmi_out",
+    "SubInsts" : [
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_hdmi_out.v",
+      "InstLine" : 94,
+      "InstName" : "svo_tcard",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_tcard.v",
+      "ModuleLine" : 23,
+      "ModuleName" : "svo_tcard"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_hdmi_out.v",
+      "InstLine" : 117,
+      "InstName" : "svo_enc",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_enc.v",
+      "ModuleLine" : 23,
+      "ModuleName" : "svo_enc"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_hdmi_out.v",
+      "InstLine" : 136,
+      "InstName" : "svo_tmds_0",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_tmds.v",
+      "ModuleLine" : 23,
+      "ModuleName" : "svo_tmds"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_hdmi_out.v",
+      "InstLine" : 146,
+      "InstName" : "svo_tmds_1",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_tmds.v",
+      "ModuleLine" : 23,
+      "ModuleName" : "svo_tmds"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_hdmi_out.v",
+      "InstLine" : 156,
+      "InstName" : "svo_tmds_2",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/hdmi/svo_tmds.v",
+      "ModuleLine" : 23,
+      "ModuleName" : "svo_tmds"
+     }
+    ]
+   },
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/tangnano20k_top.vhd",
+    "InstLine" : 226,
+    "InstName" : "audio_i2s",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/i2s/audio_i2s.vhd",
+    "ModuleLine" : 85,
+    "ModuleName" : "audio_top",
+    "SubInsts" : [
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/i2s/audio_i2s.vhd",
+      "InstLine" : 147,
+      "InstName" : "dac",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/i2s/audio_i2s.vhd",
+      "ModuleLine" : 24,
+      "ModuleName" : "dac_if"
+     }
+    ]
+   },
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/tangnano20k_top.vhd",
+    "InstLine" : 246,
+    "InstName" : "guest",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+    "ModuleLine" : 28,
+    "ModuleName" : "mist_top",
+    "SubInsts" : [
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 364,
+      "InstName" : "pll_p5",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/gowin_rpll/gowin_rpll.v",
+      "ModuleLine" : 10,
+      "ModuleName" : "Gowin_rPLL"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 373,
+      "InstName" : "pll_p",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/gowin_clkdiv/gowin_clkdiv.v",
+      "ModuleLine" : 9,
+      "ModuleName" : "Gowin_CLKDIV"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 452,
+      "InstName" : "sdram_inst",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/sdram.v",
+      "ModuleLine" : 26,
+      "ModuleName" : "sdram"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 478,
+      "InstName" : "core",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/apple2.vhd",
+      "ModuleLine" : 15,
+      "ModuleName" : "apple2",
+      "SubInsts" : [
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/apple2.vhd",
+        "InstLine" : 388,
+        "InstName" : "timing",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/timing_generator.vhd",
+        "ModuleLine" : 17,
+        "ModuleName" : "timing_generator"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/apple2.vhd",
+        "InstLine" : 418,
+        "InstName" : "video_display",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/video_generator.vhd",
+        "ModuleLine" : 21,
+        "ModuleName" : "video_generator"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/apple2.vhd",
+        "InstLine" : 445,
+        "InstName" : "cpu6502",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/T65/T65.vhd",
+        "ModuleLine" : 134,
+        "ModuleName" : "T65",
+        "SubInsts" : [
+         {
+          "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/T65/T65.vhd",
+          "InstLine" : 275,
+          "InstName" : "mcode",
+          "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/T65/T65_MCode.vhd",
+          "ModuleLine" : 58,
+          "ModuleName" : "T65_MCode"
+         },
+         {
+          "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/T65/T65.vhd",
+          "InstLine" : 312,
+          "InstName" : "alu",
+          "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/T65/T65_ALU.vhd",
+          "ModuleLine" : 57,
+          "ModuleName" : "T65_ALU"
+         }
+        ]
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/apple2.vhd",
+        "InstLine" : 460,
+        "InstName" : "cpu65c02",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/R65Cx2.vhd",
+        "ModuleLine" : 16,
+        "ModuleName" : "R65C02"
+       }
+      ]
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 512,
+      "InstName" : "tv",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tv_controller.vhd",
+      "ModuleLine" : 31,
+      "ModuleName" : "tv_controller"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 529,
+      "InstName" : "osd_inst",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/osd.v",
+      "ModuleLine" : 4,
+      "ModuleName" : "osd"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 559,
+      "InstName" : "keyboard",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/keyboard.vhd",
+      "ModuleLine" : 17,
+      "ModuleName" : "keyboard",
+      "SubInsts" : [
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/keyboard.vhd",
+        "InstLine" : 78,
+        "InstName" : "ps2_controller",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/PS2_Ctrl.vhd",
+        "ModuleLine" : 13,
+        "ModuleName" : "PS2_Ctrl"
+       }
+      ]
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 569,
+      "InstName" : "disk",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/disk_ii.vhd",
+      "ModuleLine" : 69,
+      "ModuleName" : "disk_ii",
+      "SubInsts" : [
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/disk_ii.vhd",
+        "InstLine" : 276,
+        "InstName" : "rom",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/disk_ii_rom.vhd",
+        "ModuleLine" : 5,
+        "ModuleName" : "disk_ii_rom"
+       }
+      ]
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 588,
+      "InstName" : "sdcard_interface",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_sd_card.sv",
+      "ModuleLine" : 23,
+      "ModuleName" : "mist_sd_card"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 618,
+      "InstName" : "mb",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/mockingboard.vhd",
+      "ModuleLine" : 18,
+      "ModuleName" : "MOCKINGBOARD",
+      "SubInsts" : [
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/mockingboard.vhd",
+        "InstLine" : 141,
+        "InstName" : "m6522_left",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/via6522.vhd",
+        "ModuleLine" : 19,
+        "ModuleName" : "via6522"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/mockingboard.vhd",
+        "InstLine" : 176,
+        "InstName" : "psg_left",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/YM2149.sv",
+        "ModuleLine" : 42,
+        "ModuleName" : "YM2149"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/mockingboard.vhd",
+        "InstLine" : 204,
+        "InstName" : "m6522_right",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/via6522.vhd",
+        "ModuleLine" : 19,
+        "ModuleName" : "via6522"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/mockingboard.vhd",
+        "InstLine" : 239,
+        "InstName" : "psg_right",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mockingboard/YM2149.sv",
+        "ModuleLine" : 42,
+        "ModuleName" : "YM2149"
+       }
+      ]
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 641,
+      "InstName" : "dac_l",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/dac.vhd",
+      "ModuleLine" : 21,
+      "ModuleName" : "dac"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 650,
+      "InstName" : "dac_r",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/dac.vhd",
+      "ModuleLine" : 21,
+      "ModuleName" : "dac"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 659,
+      "InstName" : "user_io_d",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/user_io.v",
+      "ModuleLine" : 25,
+      "ModuleName" : "user_io"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist_top.vhd",
+      "InstLine" : 701,
+      "InstName" : "mist_video",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/mist_video.v",
+      "ModuleLine" : 4,
+      "ModuleName" : "mist_video",
+      "SubInsts" : [
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/mist_video.v",
+        "InstLine" : 109,
+        "InstName" : "scandoubler",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/scandoubler.v",
+        "ModuleLine" : 21,
+        "ModuleName" : "scandoubler"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/mist_video.v",
+        "InstLine" : 131,
+        "InstName" : "osd",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/osd.v",
+        "ModuleLine" : 4,
+        "ModuleName" : "osd"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/mist_video.v",
+        "InstLine" : 152,
+        "InstName" : "cofi",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/cofi.sv",
+        "ModuleLine" : 3,
+        "ModuleName" : "cofi"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/mist_video.v",
+        "InstLine" : 171,
+        "InstName" : "rgb2ypbpr",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/mist/mist-modules/rgb2ypbpr.sv",
+        "ModuleLine" : 1,
+        "ModuleName" : "rgb2ypbpr"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/tangnano20k/src/tangnano20k_top.vhd",
+    "InstLine" : 303,
+    "InstName" : "controller",
+    "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/substitute_mcu.vhd",
+    "ModuleLine" : 24,
+    "ModuleName" : "substitute_mcu",
+    "SubInsts" : [
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/substitute_mcu.vhd",
+      "InstLine" : 295,
+      "InstName" : "genuart.myuart",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/simple_uart.vhd",
+      "ModuleLine" : 8,
+      "ModuleName" : "simple_uart"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/substitute_mcu.vhd",
+      "InstLine" : 318,
+      "InstName" : "mykeyboard",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/io_ps2_com.vhd",
+      "ModuleLine" : 54,
+      "ModuleName" : "io_ps2_com"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/substitute_mcu.vhd",
+      "InstLine" : 341,
+      "InstName" : "mymouse",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/io_ps2_com.vhd",
+      "ModuleLine" : 54,
+      "ModuleName" : "io_ps2_com"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/substitute_mcu.vhd",
+      "InstLine" : 389,
+      "InstName" : "spi",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/spi_controller.vhd",
+      "ModuleLine" : 23,
+      "ModuleName" : "spi_controller"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/substitute_mcu.vhd",
+      "InstLine" : 435,
+      "InstName" : "intcontroller",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/interrupt_controller.vhd",
+      "ModuleLine" : 21,
+      "ModuleName" : "interrupt_controller"
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/substitute_mcu.vhd",
+      "InstLine" : 457,
+      "InstName" : "rom",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/firmware/controller_rom.vhd",
+      "ModuleLine" : 11,
+      "ModuleName" : "controller_rom",
+      "SubInsts" : [
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/firmware/controller_rom.vhd",
+        "InstLine" : 41,
+        "InstName" : "rom1",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/firmware/controller_rom1_word.vhd",
+        "ModuleLine" : 5,
+        "ModuleName" : "controller_rom1"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/firmware/controller_rom.vhd",
+        "InstLine" : 56,
+        "InstName" : "rom2",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/firmware/controller_rom2_word.vhd",
+        "ModuleLine" : 5,
+        "ModuleName" : "controller_rom2"
+       }
+      ]
+     },
+     {
+      "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/controller/substitute_mcu.vhd",
+      "InstLine" : 502,
+      "InstName" : "cpu",
+      "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_cpu.vhd",
+      "ModuleLine" : 27,
+      "ModuleName" : "eightthirtytwo_cpu",
+      "SubInsts" : [
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_cpu.vhd",
+        "InstLine" : 329,
+        "InstName" : "genlsfnodual.fetchloadstore",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_fetchloadstore.vhd",
+        "ModuleLine" : 28,
+        "ModuleName" : "eightthirtytwo_fetchloadstore",
+        "SubInsts" : [
+         {
+          "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_fetchloadstore.vhd",
+          "InstLine" : 521,
+          "InstName" : "align_le.aligner",
+          "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_aligner_le.vhd",
+          "ModuleLine" : 25,
+          "ModuleName" : "eightthirtytwo_aligner_le"
+         }
+        ]
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_cpu.vhd",
+        "InstLine" : 376,
+        "InstName" : "decoder",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_decode.vhd",
+        "ModuleLine" : 26,
+        "ModuleName" : "eightthirtytwo_decode"
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_cpu.vhd",
+        "InstLine" : 401,
+        "InstName" : "alu",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_alu.vhd",
+        "ModuleLine" : 27,
+        "ModuleName" : "eightthirtytwo_alu",
+        "SubInsts" : [
+         {
+          "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_alu.vhd",
+          "InstLine" : 229,
+          "InstName" : "shifter",
+          "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_shifter.vhd",
+          "ModuleLine" : 27,
+          "ModuleName" : "eightthirtytwo_shifter"
+         }
+        ]
+       },
+       {
+        "InstFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_cpu.vhd",
+        "InstLine" : 442,
+        "InstName" : "hazard1",
+        "ModuleFile" : "/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/gowin_stuff/Apple2efpga/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_hazard.vhd",
+        "ModuleLine" : 26,
+        "ModuleName" : "eightthirtytwo_hazard"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]

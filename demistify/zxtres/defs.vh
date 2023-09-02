@@ -1,0 +1,2 @@
+`define DEMISTIFY
+`define VIVADO

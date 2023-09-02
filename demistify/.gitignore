@@ -56,4 +56,3 @@ controller.map
 *.srcs
 *.bit
 *.bin
-*.tcl

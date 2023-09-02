@@ -273,22 +273,17 @@ begin
 			dac_LRCK  => i2s_Lr_o,
 			dac_SCLK  => i2s_Sck_o,
 			dac_SDIN  => i2s_D_o,
-			--L_data    => std_logic_vector(dac_l & "000000"),
-			--R_data    => std_logic_vector(dac_r & "000000")
 			L_data    => std_logic_vector(dac_l_s),
 			R_data    => std_logic_vector(dac_r_s)
 		);
 
 	dac_l_s <= ((not dac_l(9)) & dac_l(8 downto 0) & dac_l(9 downto 4));
 	dac_r_s <= ((not dac_r(9)) & dac_r(8 downto 0) & dac_r(9 downto 4));
-	--dac_l_s <= ('0' & dac_l & "00000");
-	--dac_r_s <= ('0' & dac_r & "00000");
-	
+
 	I2S_MCK <= i2s_Mck_o;
 	I2S_SCK <= i2s_Sck_o;
 	I2S_LR  <= i2s_Lr_o;
 	I2S_D   <= i2s_D_o;
-
 
 
 	-- DECA HDMI
@@ -331,7 +326,7 @@ begin
 	guest : component mist_top
 		port map
 		(
-         	CLOCK_27 => MAX10_CLK1_50&MAX10_CLK1_50,
+         	CLOCK_27 => MAX10_CLK1_50,
 			LED => LED(0),
 			--SDRAM
 			SDRAM_DQ   => DRAM_DQ,
@@ -370,8 +365,8 @@ begin
 				vga_x_vs  => vga_x_vs,
 				
 			--AUDIO
-				DAC_C_L   => dac_l,
-				DAC_C_R   => dac_r,
+			DAC_C_L   => dac_l,
+			DAC_C_R   => dac_r,
 			AUDIO_L => SIGMA_L,
 			AUDIO_R => SIGMA_R
 		);
@@ -425,6 +420,7 @@ begin
 				-- UART
 				rxd       => rs232_rxd,
 				txd       => rs232_txd,
+				--
 				intercept => intercept
 			);
 

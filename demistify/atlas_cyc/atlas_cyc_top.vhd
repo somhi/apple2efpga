@@ -394,8 +394,7 @@ begin
 
 	guest : component mist_top
 		port map(
---			CLOCK_27 => CLK12M,
-			CLOCK_27 => CLK12M & CLK12M,
+			CLOCK_27 => CLK12M,
 --			RESET_N => reset_n,
 			LED => LED(0),
 			--SDRAM
