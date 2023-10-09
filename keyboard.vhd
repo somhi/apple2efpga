@@ -66,10 +66,27 @@ architecture rtl of keyboard is
                   );
 
   signal state, next_state : states;
+  
+  
+    component spram
+      generic (
+        addrbits : integer;
+        databits : integer;
+        init_file : string
+      );
+      port (
+        address : in STD_LOGIC_VECTOR (addrbits-1 downto 0);
+        clock : in STD_LOGIC;
+        data : in STD_LOGIC_VECTOR (databits-1 downto 0);
+        wren : in STD_LOGIC;
+        q : out STD_LOGIC_VECTOR (databits-1 downto 0)
+      );
+    end component;
+    
 
 begin
 
-  keyboard_rom : work.spram
+  keyboard_rom : spram
   generic map (11,8,"../roms/keyboard.mif")
   port map (
    address => std_logic_vector(rom_addr),

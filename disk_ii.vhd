@@ -125,6 +125,29 @@ architecture rtl of disk_ii is
   signal write_mode : std_logic;        -- When C08E/F accessed
   signal wp_wire : std_logic;
 
+  component drive_ii
+    port (
+      CLK_14M : in std_logic;
+      CLK_2M : in std_logic;
+      PHASE_ZERO : in std_logic;
+      RESET : in std_logic;
+      DISK_READY : in std_logic;
+      D_IN : in unsigned( 7 downto 0);
+      D_OUT : out unsigned( 7 downto 0);
+      DISK_ACTIVE : in std_logic;
+      MOTOR_PHASE : in std_logic_vector(3 downto 0);
+      WRITE_MODE : in std_logic;
+      READ_DISK : in std_logic;
+      WRITE_REG : in std_logic;
+      TRACK : out unsigned( 5 downto 0);
+      TRACK_ADDR : out unsigned(12 downto 0);
+      TRACK_DI : out unsigned( 7 downto 0);
+      TRACK_DO : in unsigned( 7 downto 0);
+      TRACK_WE : out std_logic;
+      TRACK_BUSY : in std_logic
+    );
+  end component;
+
 begin
 
   interpret_io : process (CLK_14M)
@@ -194,7 +217,7 @@ begin
   D_OUT <= rom_dout when IO_SELECT = '1' else data_reg when q6 = '0' else wp_wire & "000"&x"0";
   data_reg <= d_out1 when drive2_select = '0' else d_out2;
 
-  drive_1 : entity work.drive_ii
+  drive_1 : component drive_ii
   port map (
     CLK_14M        => CLK_14M,
     CLK_2M         => CLK_2M,
@@ -217,7 +240,7 @@ begin
     TRACK_BUSY     => TRACK1_BUSY
   );
 
-  drive_2 : entity work.drive_ii
+  drive_2 : component drive_ii
   port map (
     CLK_14M        => CLK_14M,
     CLK_2M         => CLK_2M,

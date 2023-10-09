@@ -57,6 +57,71 @@ entity MOCKINGBOARD is
   signal PSG_EN   : std_logic;
   signal VIA_CE_F, VIA_CE_R : std_logic;
 
+  component YM2149
+    generic (
+      MIXER_VOLTABLE : std_logic;
+      IO_OUT_READ_IN : std_logic
+    );
+    port (
+      I_DA : in std_logic_vector(7 downto 0);
+      O_DA : out std_logic_vector(7 downto 0);
+      O_DA_OE_L : out std_logic;
+      I_A9_L : in std_logic;
+      I_A8 : in std_logic;
+      I_BDIR : in std_logic;
+      I_BC2 : in std_logic;
+      I_BC1 : in std_logic;
+      I_SEL_L : in std_logic;
+      I_STEREO : in std_logic;
+      O_AUDIO : out std_logic_vector(7 downto 0);
+      O_CHAN : out std_logic_vector(1 downto 0);
+      O_AUDIO_L : out std_logic_vector(9 downto 0);
+      O_AUDIO_R : out std_logic_vector(9 downto 0);
+      I_IOA : in std_logic_vector(7 downto 0);
+      O_IOA : out std_logic_vector(7 downto 0);
+      O_IOA_OE_L : out std_logic;
+      I_IOB : in std_logic_vector(7 downto 0);
+      O_IOB : out std_logic_vector(7 downto 0);
+      O_IOB_OE_L : out std_logic;
+      ENA : in std_logic;
+      RESET_L : in std_logic;
+      CLK : in std_logic
+    );
+  end component;
+
+  component via6522
+    port (
+      clock : in std_logic;
+      rising : in std_logic;
+      falling : in std_logic;
+      reset : in std_logic;
+      addr : in std_logic_vector(3 downto 0);
+      wen : in std_logic;
+      ren : in std_logic;
+      data_in : in std_logic_vector(7 downto 0);
+      data_out : out std_logic_vector(7 downto 0);
+      phi2_ref : out std_logic;
+      port_a_o : out std_logic_vector(7 downto 0);
+      port_a_t : out std_logic_vector(7 downto 0);
+      port_a_i : in std_logic_vector(7 downto 0);
+      port_b_o : out std_logic_vector(7 downto 0);
+      port_b_t : out std_logic_vector(7 downto 0);
+      port_b_i : in std_logic_vector(7 downto 0);
+      ca1_i : in std_logic;
+      ca2_o : out std_logic;
+      ca2_i : in std_logic;
+      ca2_t : out std_logic;
+      cb1_o : out std_logic;
+      cb1_i : in std_logic;
+      cb1_t : out std_logic;
+      cb2_o : out std_logic;
+      cb2_i : in std_logic;
+      cb2_t : out std_logic;
+      irq : out std_logic
+    );
+  end component;
+
+
 begin
 
   O_DATA <= o_data_l when I_ADDR(7) = '0' else o_data_r;
@@ -69,7 +134,7 @@ begin
   VIA_CE_F <= PHASE_ZERO_R;
 
 -- Left Channel Combo
-  m6522_left : work.via6522
+  m6522_left : via6522
     port map (
       clock       => clk_14M,
       rising      => VIA_CE_R,
@@ -104,7 +169,11 @@ begin
       irq         => lirq
       );
 
-  psg_left: entity work.YM2149
+  psg_left: YM2149
+    generic map (
+      MIXER_VOLTABLE => '0',
+      IO_OUT_READ_IN => '1'
+    )
     port map(
       -- data bus
       I_DA       => i_psg_l,            -- in  std_logic_vector(7 downto 0); -- pin 37 to 30
@@ -117,6 +186,8 @@ begin
       I_BC2      => '1',                -- in  std_logic; -- pin 28
       I_BC1      => o_pb_l(0),          -- in  std_logic; -- pin 29
       I_SEL_L    => '1',                -- in  std_logic;
+
+      I_STEREO    => '0',               -- in  std_logic;
 
       O_AUDIO_L  => O_AUDIO_L,          -- out std_logic_vector(7 downto 0);
 
@@ -135,7 +206,7 @@ begin
     );
 
 -- Right Channel Combo
-  m6522_right : work.via6522
+  m6522_right : via6522
     port map (
       clock       => clk_14M,
       rising      => VIA_CE_R,
@@ -170,7 +241,11 @@ begin
       irq         => rirq
       );
 
-  psg_right: entity work.YM2149
+  psg_right: YM2149
+    generic map (
+      MIXER_VOLTABLE => '0',
+      IO_OUT_READ_IN => '1'
+    )
     port map(
       -- data bus
       I_DA       => i_psg_r,            -- in  std_logic_vector(7 downto 0); -- pin 37 to 30
@@ -183,6 +258,8 @@ begin
       I_BC2      => '1',                -- in  std_logic; -- pin 28
       I_BC1      => o_pb_r(0),          -- in  std_logic; -- pin 29
       I_SEL_L    => '1',                -- in  std_logic;
+
+      I_STEREO    => '0',               -- in  std_logic;
 
       O_AUDIO_L  => O_AUDIO_R,          -- out std_logic_vector(7 downto 0);
 

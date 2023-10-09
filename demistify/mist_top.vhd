@@ -32,7 +32,6 @@ entity mist_top is
     
     CLOCK_27    : in std_logic; -- 27 MHz
 
-
     -- SDRAM
     SDRAM_nCS : out std_logic; -- Chip Select
     SDRAM_DQ : inout std_logic_vector(15 downto 0); -- SDRAM Data bus 16 Bits
@@ -56,7 +55,6 @@ entity mist_top is
 
     -- VGA output
     
-
     VGA_HS,                                             -- H_SYNC
     VGA_VS : out std_logic;                             -- V_SYNC
     VGA_R,                                              -- Red[5:0]
@@ -170,6 +168,43 @@ architecture datapath of mist_top is
     );
   end component;
 
+  component MOCKINGBOARD
+    port (
+    CLK_14M : in std_logic;
+    PHASE_ZERO : in std_logic;
+    PHASE_ZERO_R : in std_logic;
+    PHASE_ZERO_F : in std_logic;
+    I_ADDR : in std_logic_vector(7 downto 0);
+    I_DATA : in std_logic_vector(7 downto 0);
+    O_DATA : out std_logic_vector(7 downto 0);
+    I_RW_L : in std_logic;
+    O_IRQ_L : out std_logic;
+    O_NMI_L : out std_logic;
+    I_IOSEL_L : in std_logic;
+    I_RESET_L : in std_logic;
+    I_ENA_H : in std_logic;
+    O_AUDIO_L : out std_logic_vector(9 downto 0);
+    O_AUDIO_R : out std_logic_vector(9 downto 0)
+  );
+  end component;
+
+  component dac
+    generic (
+      C_bits : integer
+    );
+      port (
+      clk_i : in std_logic;
+      res_n_i : in std_logic;
+      dac_i : in std_logic_vector(C_bits-1 downto 0);
+      dac_o : out std_logic
+    );
+  end component;
+
+
+  signal addr_8 : std_logic_vector(15 downto 0);
+  signal r_6 : std_logic_vector(7 downto 0);
+  signal g_6 : std_logic_vector(7 downto 0);
+  signal b_6 : std_logic_vector(7 downto 0);
 
   component osd is
     generic (
@@ -356,7 +391,19 @@ begin
     locked => pll_locked
     );
 
- 
+  -- pll : entity work.mist_clk 
+  -- port map (
+  --   -- Clock in ports
+  --   clk_in1 => CLOCK_27,      -- input  clk_in1
+  --   -- Clock out ports
+  --   clk_out1  => (CLK_28M),        
+  --   clk_out2  => (CLK_14M),    
+  --   -- Status and control signals
+  --   reset => '0',                  -- input reset
+  --   locked  => (pll_locked)       -- output locked
+  -- );
+
+
   -- Paddle buttons
   -- GAMEPORT input bits:
   --  7    6    5    4    3   2   1    0
@@ -499,9 +546,9 @@ begin
     SPI_SS3 => SPI_SS3,
     SPI_DI => SPI_DI,
     rotate => "00",
-    R_in => std_logic_vector(r)(7 downto 2),
-    G_in => std_logic_vector(g)(7 downto 2),
-    B_in => std_logic_vector(b)(7 downto 2),
+    R_in => r_6(7 downto 2),
+    G_in => g_6(7 downto 2),
+    B_in => b_6(7 downto 2),
     HSync => hsync,
     VSync => vsync,
     R_out => vga_x_r,
@@ -622,7 +669,9 @@ begin
 
   LED <= not (D1_ACTIVE or D2_ACTIVE);
 
-  mb : work.mockingboard
+  addr_8 <= std_logic_vector(ADDR);
+
+  mb : mockingboard
     port map (
       CLK_14M    => CLK_14M,
       PHASE_ZERO => PHASE_ZERO,
@@ -631,7 +680,7 @@ begin
       I_RESET_L => not reset,
       I_ENA_H   => status(6),
 
-      I_ADDR    => std_logic_vector(ADDR)(7 downto 0),
+      I_ADDR    => addr_8(7 downto 0),
       I_DATA    => std_logic_vector(D),
       unsigned(O_DATA)    => PSG_DO,
       I_RW_L    => not cpu_we,
@@ -645,7 +694,7 @@ begin
   DAC_C_L <= signed(psg_audio_l + (audio & "0000000")); 		
   DAC_C_R <= signed(psg_audio_r + (audio & "0000000")); 		
 
-  dac_l : work.dac
+  dac_l : dac
     generic map(10)
     port map (
       clk_i		=> CLK_14M,
@@ -654,7 +703,7 @@ begin
       dac_o 	=> AUDIO_L
       );
 
-  dac_r : work.dac
+  dac_r : dac
     generic map(10)
     port map (
       clk_i		=> CLK_14M,
@@ -702,6 +751,11 @@ begin
       ps2_kbd_data => ps2Data
     );
 
+
+  r_6 <= std_logic_vector(r);
+  g_6 <= std_logic_vector(g);
+  b_6 <= std_logic_vector(b);
+
  mist_video: work.mist.mist_video
     generic map(
 	  SD_HCNT_WIDTH => 10
@@ -719,9 +773,9 @@ begin
       SPI_SCK => SPI_SCK,
       SPI_SS3 => SPI_SS3,
 
-      R => std_logic_vector(r)(7 downto 2),
-      G => std_logic_vector(g)(7 downto 2),
-      B => std_logic_vector(b)(7 downto 2),
+      R => r_6(7 downto 2),
+      G => g_6(7 downto 2),
+      B => b_6(7 downto 2),
       HSync => hsync,
       VSync => vsync,
       VGA_HS => VGA_HSe,

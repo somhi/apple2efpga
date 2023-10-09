@@ -32,7 +32,7 @@ module mist_sd_card
 
 	input   [8:0] sd_buff_addr,
 	input   [7:0] sd_buff_dout,
-	output  [7:0] sd_buff_din,
+	output reg  [7:0] sd_buff_din,
 	input         sd_buff_wr,
 
 	input         change,
@@ -42,7 +42,7 @@ module mist_sd_card
 	input         active,
 
 	input  [12:0] ram_addr,
-	output  [7:0] ram_do,
+	output reg [7:0] ram_do,
 	input   [7:0] ram_di,
 	input         ram_we,
 	output reg    busy

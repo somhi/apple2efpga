@@ -140,6 +140,23 @@ architecture rtl of apple2 is
   
   signal R_W_n     : std_logic;
 
+
+    component spram
+      generic (
+        addrbits : integer;
+        databits : integer;
+        init_file : string
+      );
+      port (
+        address : in STD_LOGIC_VECTOR (addrbits-1 downto 0);
+        clock : in STD_LOGIC;
+        data : in STD_LOGIC_VECTOR (databits-1 downto 0);
+        wren : in STD_LOGIC;
+        q : out STD_LOGIC_VECTOR (databits-1 downto 0)
+      );
+    end component;
+    
+
 begin
 
   CLK_2M <= Q3;
@@ -467,7 +484,7 @@ begin
 
   -- Original Apple had asynchronous ROMs.  We use a synchronous ROM
   -- that needs its address earlier, hence the odd clock.
-  roms : work.spram
+  roms : spram
   generic map (14,8,"../roms/apple2e.mif")
   port map (
    address => std_logic_vector(rom_addr),
