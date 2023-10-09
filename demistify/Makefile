@@ -1,11 +1,11 @@
 DEMISTIFYPATH=DeMiSTify
 SUBMODULES=$(DEMISTIFYPATH)/EightThirtyTwo/lib832/lib832.a
-PROJECT=Apple2eFPGA
+PROJECT=apple2efpga
 PROJECTPATH=./
 PROJECTTOROOT=../
 BOARD=
 ROMSIZE1=8192
-ROMSIZE2=4096
+ROMSIZE2=8192
 
 # Prevent MiST / MiSTer targets being built if the user supplied the BOARDS variable when invoking make.
 TARGETS_NOMIST=$(DEMISTIFYPATH)/site.template $(DEMISTIFYPATH)/site.mk $(SUBMODULES) firmware init compile tns

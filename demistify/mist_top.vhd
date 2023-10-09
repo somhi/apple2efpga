@@ -93,8 +93,8 @@ architecture datapath of mist_top is
 
   constant CONF_STR : string :=
    "AppleII;;"&
-   "S0,NIB,Load Disk 0;"&
-   "S1,NIB,Load Disk 1;"&
+   "S0U,NIB,Load Disk 0;"&
+   "S1U,NIB,Load Disk 1;"&
    "O89,Write Protect,None,Disk 0,Disk 1, Disk 0&1;"&
    "O1,CPU Type,6502,65C02;"&
    "O23,Monitor,Color,B&W,Green,Amber;"&
@@ -102,7 +102,8 @@ architecture datapath of mist_top is
    "OBC,Scanlines,Off,25%,50%,75%;"&
    "O5,Joysticks,Normal,Swapped;"&
    "O6,Mockingboard S4,off,on;"&
-   "T7,Cold reset;";
+   "T0,Reset;" &
+   "T7,Hard Reset;";
 
   function to_slv(s: string) return std_logic_vector is 
     constant ss: string(1 to s'length) := s; 

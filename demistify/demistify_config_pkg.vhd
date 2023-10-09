@@ -8,7 +8,7 @@ use ieee.numeric_std.all;
 package demistify_config_pkg is
 constant demistify_romspace : integer := 14; -- 16k address space to accommodate 12K of ROM
 constant demistify_romsize1 : integer := 13; -- 8k fot the first chunk
-constant demistify_romsize2 : integer := 12; -- 4k for the second chunk, mirrored across the last 4k
+constant demistify_romsize2 : integer := 13; -- 8k for the second chunk, mirrored across the last 4k
 
 -- Core-specific button mapping.
 -- Joysticks are (currently) 8 bits width, with the directions in the lower four bits.
@@ -22,10 +22,14 @@ constant demistify_romsize2 : integer := 12; -- 4k for the second chunk, mirrore
 -- Since Megadrive button B is the most important, we map button 1 -> B, button 2 -> C, button 3 -> A
 -- and button 4 -> Start, hence button1 = 5, button2 = 6, button3 = 4 and button4 = 7,
 
+constant demistify_joybits : integer := 8;
+
 constant demistify_button1 : integer := 4;
 constant demistify_button2 : integer := 5;
 constant demistify_button3 : integer := 6;
 constant demistify_button4 : integer := 7;
+constant demistify_button5 : integer := 8;
+constant demistify_button6 : integer := 9;
 
 constant demistify_serialdebug : std_logic := '0';
 
@@ -36,7 +40,7 @@ constant demistify_serialdebug : std_logic := '0';
 	COMPONENT mist_top -- Rename to match the guest core
 		PORT
 		(
-			CLOCK_27 		:	 IN STD_LOGIC;	-- to match the guest core
+			CLOCK_27 		:	 IN STD_LOGIC;
 			SDRAM_DQ		:	 INOUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 			SDRAM_A			:	 OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
 			SDRAM_DQML		:	 OUT STD_LOGIC;
@@ -73,7 +77,7 @@ constant demistify_serialdebug : std_logic := '0';
 
 			AUDIO_L  	: out std_logic;
 			AUDIO_R  	: out std_logic;
-   		UART_RX 	: in std_logic;
+   		    UART_RX 	: in std_logic;
 			DAC_C_L  : out signed(9 downto 0);
 			DAC_C_R  : out signed(9 downto 0);
     		LED 		: out std_logic

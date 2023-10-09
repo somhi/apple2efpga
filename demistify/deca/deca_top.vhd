@@ -38,8 +38,8 @@ entity deca_top is
 		-- EAR
 		EAR : in std_logic;
 		-- PS2
-		PS2_KEYBOARD_CLK : inout std_logic;
-		PS2_KEYBOARD_DAT : inout std_logic;
+		PS2_KEYBOARD_CLK : inout std_logic := '1';
+		PS2_KEYBOARD_DAT : inout std_logic := '1';
 		PS2_MOUSE_CLK    : inout std_logic;
 		PS2_MOUSE_DAT    : inout std_logic;
 		-- UART
@@ -200,6 +200,8 @@ architecture RTL of deca_top is
 	-- 	);
 	-- end component;
 
+	signal act_led : std_logic;
+
 	signal vga_x_r   : std_logic_vector(5 downto 0);
 	signal vga_x_g   : std_logic_vector(5 downto 0);
 	signal vga_x_b   : std_logic_vector(5 downto 0);
@@ -327,7 +329,7 @@ begin
 		port map
 		(
          	CLOCK_27 => MAX10_CLK1_50,
-			LED => LED(0),
+			LED => act_led,
 			--SDRAM
 			SDRAM_DQ   => DRAM_DQ,
 			SDRAM_A    => DRAM_ADDR,
@@ -410,8 +412,8 @@ begin
 				ps2m_clk_out => ps2_mouse_clk_out,
 				ps2m_dat_out => ps2_mouse_dat_out,
 
-				-- Buttons
-				buttons => (0 => KEY(0), 1 => KEY(1), others => '1'),
+			-- Buttons
+			buttons => (0 => KEY(1), others => '1'),	-- 0 => OSD_button
 
 				-- Joysticks
 				joy1 => joya,
@@ -423,5 +425,7 @@ begin
 				--
 				intercept => intercept
 			);
+
+	LED <= (0 => not act_led, others => '1');
 
 	end rtl;
