@@ -132,17 +132,17 @@ architecture RTL of tangnano20k_top is
 	signal joyd : std_logic_vector(7 downto 0);
 
 
-component audio_top is
-Port ( 	
-		clk_50MHz : in STD_LOGIC; -- system clock (50 MHz)
-		dac_MCLK : out STD_LOGIC; -- outputs to PMODI2L DAC
-		dac_LRCK : out STD_LOGIC;
-		dac_SCLK : out STD_LOGIC;
-		dac_SDIN : out STD_LOGIC;
-		L_data : 	in std_logic_vector(15 downto 0);  	-- LEFT data (15-bit signed)
-		R_data : 	in std_logic_vector(15 downto 0)  	-- RIGHT data (15-bit signed) 
-);
-end component;
+	component audio_top is
+	Port ( 	
+			clk_50MHz : in STD_LOGIC; -- system clock (50 MHz)
+			dac_MCLK : out STD_LOGIC; -- outputs to PMODI2L DAC
+			dac_LRCK : out STD_LOGIC;
+			dac_SCLK : out STD_LOGIC;
+			dac_SDIN : out STD_LOGIC;
+			L_data : 	in std_logic_vector(15 downto 0);  	-- LEFT data (15-bit signed)
+			R_data : 	in std_logic_vector(15 downto 0)  	-- RIGHT data (15-bit signed) 
+	);
+	end component;
 
 -- DAC AUDIO     
 	signal dac_l	: signed(9 downto 0);
@@ -245,7 +245,7 @@ O_sdram_dqm(3) <= '0';
 
 guest: COMPONENT  mist_top
   port map (
-    CLOCK_27 => SYS_CLK&SYS_CLK,
+    CLOCK_27 => SYS_CLK,
     LED => act_led,
 	
 	--SPI

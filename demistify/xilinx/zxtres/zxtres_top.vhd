@@ -184,15 +184,10 @@ PS2_MOUSE_DAT    <= '0' when ps2_mouse_dat_out = '0' else 'Z';
 ps2_mouse_clk_in <= PS2_MOUSE_CLK;
 PS2_MOUSE_CLK    <= '0' when ps2_mouse_clk_out = '0' else 'Z';
 
--- ps2_keyboard_dat_in <= PS2_KEYBOARD_DAT;
--- PS2_KEYBOARD_DAT    <= '0' when ps2_keyboard_dat_out = '0' else 'Z';
--- ps2_keyboard_clk_in <= PS2_KEYBOARD_CLK;
--- PS2_KEYBOARD_CLK    <= '0' when ps2_keyboard_clk_out = '0' else 'Z';
-
 ps2_keyboard_dat_in <= PS2_KEYBOARD_DAT;
-PS2_KEYBOARD_DAT    <= '0' when ((ps2_keyboard_dat_out = '0') and (intercept = '0') ) else 'Z';
+PS2_KEYBOARD_DAT    <= '0' when ps2_keyboard_dat_out = '0' else 'Z';
 ps2_keyboard_clk_in <= PS2_KEYBOARD_CLK;
-PS2_KEYBOARD_CLK    <= '0' when ((ps2_keyboard_clk_out = '0') and (intercept = '0') ) else 'Z';
+PS2_KEYBOARD_CLK    <= '0' when ps2_keyboard_clk_out = '0' else 'Z';
 
 VGA_R       <= vga_red;
 VGA_G       <= vga_green;

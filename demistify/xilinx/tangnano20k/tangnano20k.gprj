@@ -51,7 +51,7 @@
         <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/demistify_config_pkg.vhd" type="file.vhdl" enable="1"/>
         <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/firmware/controller_rom1_word.vhd" type="file.vhdl" enable="1"/>
         <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/firmware/controller_rom2_word.vhd" type="file.vhdl" enable="1"/>
-        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/mist_top.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/xilinx/tangnano20k/src/mist_top.vhd" type="file.vhdl" enable="1"/>
         <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/xilinx/apple2.vhd" type="file.vhdl" enable="1"/>
         <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/xilinx/keyboard.vhd" type="file.vhdl" enable="1"/>
         <File path="src/i2s/audio_i2s.vhd" type="file.vhdl" enable="1"/>
