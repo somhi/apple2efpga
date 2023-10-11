@@ -54,7 +54,7 @@
         <File path="../apple2.vhd" type="file.vhdl" enable="1"/>
         <File path="../keyboard.vhd" type="file.vhdl" enable="1"/>
         <File path="src/i2s/audio_i2s.vhd" type="file.vhdl" enable="1"/>
-        <File path="src/mist_top.vhd" type="file.vhdl" enable="1"/>
+        <File path="../mist_top.vhd" type="file.vhdl" enable="1"/>
         <File path="src/tangnano20k_top.vhd" type="file.vhdl" enable="1"/>
         <File path="../video_generator.vhd" type="file.vhdl" enable="1"/>
         <File path="../../../disk_ii.vhd" type="file.vhdl" enable="1"/>
@@ -70,6 +70,6 @@
         <File path="../../../tv_controller.vhd" type="file.vhdl" enable="1"/>
         <File path="src/tangnano20k.cst" type="file.cst" enable="1"/>
         <File path="../../DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_multicycles.sdc" type="file.sdc" enable="0"/>
-        <File path="src/apple2efpga.sdc" type="file.sdc" enable="1"/>
+        <File path="../apple2efpga.sdc" type="file.sdc" enable="1"/>
     </FileList>
 </Project>
