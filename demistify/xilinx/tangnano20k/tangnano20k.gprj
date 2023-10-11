@@ -1,0 +1,75 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW2AR-18C" pn="GW2AR-LV18QN88C8/I7">gw2ar18c-000</Device>
+    <FileList>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/xilinx/spram.v" type="file.verilog" enable="1"/>
+        <File path="src/dualshock_controller.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_clkdiv/gowin_clkdiv.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/svo_enc.v" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/svo_hdmi_out.v" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/svo_tcard.v" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/svo_tmds.v" type="file.verilog" enable="1"/>
+        <File path="src/sdram.v" type="file.verilog" enable="0"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/arcade_inputs.v" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/cofi.sv" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/data_io.v" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/mist_video.v" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/osd.v" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/rgb2ypbpr.v" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/scandoubler.v" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/user_io.v" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist_sd_card.sv" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/sdram.v" type="file.verilog" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/PS2_Ctrl.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/R65Cx2.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/T65/T65.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/T65/T65_ALU.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/T65/T65_MCode.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/T65/T65_Pack.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_aligner.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_aligner_le.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_alu.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_cpu.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_debug.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_decode.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_fetchloadstore.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_hazard.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_pkg.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_shifter.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/controller/interrupt_controller.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/controller/io_ps2_com.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/controller/jtag_uart.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/controller/simple_uart.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/controller/spi_controller.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/controller/substitute_mcu.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/controller/timer_controller.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/DeMiSTify/firmware/controller_rom.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/demistify_config_pkg.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/firmware/controller_rom1_word.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/firmware/controller_rom2_word.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/mist_top.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/xilinx/apple2.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/xilinx/keyboard.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/i2s/audio_i2s.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/tangnano20k_top.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/xilinx/video_generator.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/disk_ii.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/disk_ii_rom.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/drive_ii.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/dac.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mist/mist-modules/mist.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mockingboard/YM2149.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mockingboard/mockingboard.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mockingboard/via6522.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/mockingboard/vol_table_array.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/timing_generator.vhd" type="file.vhdl" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/tv_controller.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/tangnano20k.cst" type="file.cst" enable="1"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/DeMiSTify/EightThirtyTwo/RTL/eightthirtytwo_multicycles.sdc" type="file.sdc" enable="0"/>
+        <File path="/home/jordi/FPGAs/FPGA-Tang20k/GOWIN_HDL/Apple2efpga_dmty_3p_cape/demistify/xilinx/apple2efpga.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

@@ -39,6 +39,21 @@ end video_generator;
 
 architecture rtl of video_generator is
 
+  component spram
+    generic (
+      addrbits : integer;
+      databits : integer;
+      init_file : string
+    );
+    port (
+      address : in STD_LOGIC_VECTOR (addrbits-1 downto 0);
+      clock : in STD_LOGIC;
+      data : in STD_LOGIC_VECTOR (databits-1 downto 0);
+      wren : in STD_LOGIC;
+      q : out STD_LOGIC_VECTOR (databits-1 downto 0)
+    );
+  end component;
+
   -- IIe signals
   signal video_rom_addr : unsigned(11 downto 0);
   signal video_rom_out : unsigned(7 downto 0);
@@ -59,14 +74,15 @@ begin
                     (DL(6) and (ALTCHAR or GR2 or DL(7))) &
                     DL(5 downto 0) & SEGC & SEGB & SEGA;
 
-  videorom : work.spram
-  generic map (12,8,"../roms/video.mif")
+  videorom : spram
+  generic map (12,8,"../roms/video.hex")
   port map (
    address => std_logic_vector(video_rom_addr),
    clock => CLK_14M,
    data => (others=>'0'),
    wren => '0',
    unsigned(q) => video_rom_out);
+
 
   LS166 : process (CLK_14M)
   begin
