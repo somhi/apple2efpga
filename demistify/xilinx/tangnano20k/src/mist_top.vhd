@@ -742,7 +742,7 @@ begin
       dac_o 	=> AUDIO_R
       );
 
-  user_io_inst : user_io
+  user_io_inst : entity work.user_io
     generic map (STRLEN => CONF_STR'length)
 
     port map (
@@ -777,6 +777,17 @@ begin
       sd_buff_addr => sd_buff_addr,
       img_mounted => disk_change,
       img_size => disk_size,
+
+      conf_chr => "00000000",
+      ps2_kbd_clk_i => '0',
+      ps2_kbd_data_i => '0',
+      ps2_mouse_clk_i => '0',
+      ps2_mouse_data_i => '0',
+      kbd_out_data => "00000000",
+      kbd_out_strobe => '0',
+      serial_data => "00000000",
+      serial_strobe => '0',
+
       ps2_kbd_clk => ps2Clk,
       ps2_kbd_data => ps2Data
     );
