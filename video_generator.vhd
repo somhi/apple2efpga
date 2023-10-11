@@ -39,25 +39,39 @@ end video_generator;
 
 architecture rtl of video_generator is
 
-    component spram
+    -- component spram
+    --   generic (
+    --     addrbits : integer;
+    --     databits : integer;
+    --     init_file : string
+    --   );
+    --   port (
+    --     address : in STD_LOGIC_VECTOR (addrbits-1 downto 0);
+    --     clock : in STD_LOGIC;
+    --     data : in STD_LOGIC_VECTOR (databits-1 downto 0);
+    --     wren : in STD_LOGIC;
+    --     q : out STD_LOGIC_VECTOR (databits-1 downto 0)
+    --   );
+    -- end component;
+    
+    component rom
       generic (
         addrbits : integer;
-        databits : integer;
         init_file : string
       );
       port (
-        address : in STD_LOGIC_VECTOR (addrbits-1 downto 0);
-        clock : in STD_LOGIC;
-        data : in STD_LOGIC_VECTOR (databits-1 downto 0);
-        wren : in STD_LOGIC;
-        q : out STD_LOGIC_VECTOR (databits-1 downto 0)
+        clock : in std_logic;
+        ce : in std_logic;
+        q : out std_logic_vector (7 downto 0);
+        a : in std_logic_vector  (addrbits-1 downto 0)
       );
     end component;
-    
+
 
   -- IIe signals
   signal video_rom_addr : unsigned(11 downto 0);
   signal video_rom_out : unsigned(7 downto 0);
+  signal video_rom_out_s : std_logic_vector(7 downto 0);
   signal video_shiftreg : unsigned(7 downto 0);
 
 begin
@@ -75,14 +89,29 @@ begin
                     (DL(6) and (ALTCHAR or GR2 or DL(7))) &
                     DL(5 downto 0) & SEGC & SEGB & SEGA;
 
-  videorom : spram
-  generic map (12,8,"../roms/video.mif")
+  -- videorom : spram
+  -- generic map (12,8,"../roms/video.mif")
+  -- port map (
+  --  address => std_logic_vector(video_rom_addr),
+  --  clock => CLK_14M,
+  --  data => (others=>'0'),
+  --  wren => '0',
+  --  unsigned(q) => video_rom_out);
+
+  videorom : rom
+  generic map (
+    addrbits => 12,
+    init_file => "../roms/video.hex"
+  )
   port map (
-   address => std_logic_vector(video_rom_addr),
-   clock => CLK_14M,
-   data => (others=>'0'),
-   wren => '0',
-   unsigned(q) => video_rom_out);
+    clock => CLK_14M,
+    ce => '1',
+    q => video_rom_out_s,
+    a => std_logic_vector(video_rom_addr)
+  );
+
+  video_rom_out <= unsigned(video_rom_out_s);
+
 
   LS166 : process (CLK_14M)
   begin

@@ -29,7 +29,6 @@ entity mist_top is
 
   port (
     -- Clocks
-    
     CLOCK_27    : in std_logic; -- 27 MHz
 
     -- SDRAM
@@ -54,7 +53,6 @@ entity mist_top is
     CONF_DATA0 : in std_logic;
 
     -- VGA output
-    
     VGA_HS,                                             -- H_SYNC
     VGA_VS : out std_logic;                             -- V_SYNC
     VGA_R,                                              -- Red[5:0]
@@ -72,12 +70,12 @@ entity mist_top is
     -- Audio
     AUDIO_L,
     AUDIO_R : out std_logic;
+
 	 -- DAC
-	 DAC_C_L  : out signed(9 downto 0);
-	 DAC_C_R  : out signed(9 downto 0);
+	  DAC_C_L  : out signed(9 downto 0);
+	  DAC_C_R  : out signed(9 downto 0);
 
     -- UART
-
     UART_RX : in std_logic;
 
     -- LEDG
@@ -199,12 +197,6 @@ architecture datapath of mist_top is
       dac_o : out std_logic
     );
   end component;
-
-
-  signal addr_8 : std_logic_vector(15 downto 0);
-  signal r_6 : std_logic_vector(7 downto 0);
-  signal g_6 : std_logic_vector(7 downto 0);
-  signal b_6 : std_logic_vector(7 downto 0);
 
   component osd is
     generic (
@@ -350,7 +342,11 @@ architecture datapath of mist_top is
   signal open_apple : std_logic;
   signal closed_apple : std_logic;
 
- 
+  signal addr_8 : std_logic_vector(15 downto 0);
+  signal r_6 : std_logic_vector(7 downto 0);
+  signal g_6 : std_logic_vector(7 downto 0);
+  signal b_6 : std_logic_vector(7 downto 0);
+
   signal VGA_Re : std_logic_vector(5 downto 0);           
   signal VGA_Ge : std_logic_vector(5 downto 0);           
   signal VGA_Be : std_logic_vector(5 downto 0);         
@@ -390,18 +386,6 @@ begin
     c1     => CLK_14M,
     locked => pll_locked
     );
-
-  -- pll : entity work.mist_clk 
-  -- port map (
-  --   -- Clock in ports
-  --   clk_in1 => CLOCK_27,      -- input  clk_in1
-  --   -- Clock out ports
-  --   clk_out1  => (CLK_28M),        
-  --   clk_out2  => (CLK_14M),    
-  --   -- Status and control signals
-  --   reset => '0',                  -- input reset
-  --   locked  => (pll_locked)       -- output locked
-  -- );
 
 
   -- Paddle buttons

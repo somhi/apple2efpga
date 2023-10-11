@@ -33,6 +33,7 @@ architecture rtl of keyboard is
 
   signal rom_addr           : std_logic_vector(10 downto 0);
   signal rom_out            : unsigned(7 downto 0);
+  signal rom_out_s          : std_logic_vector(7 downto 0);
   signal junction_code      : std_logic_vector(7 downto 0);
   signal code, latched_code : unsigned(7 downto 0);
   signal ext, latched_ext   : std_logic;
@@ -68,33 +69,61 @@ architecture rtl of keyboard is
   signal state, next_state : states;
   
   
-    component spram
+    -- component spram
+    --   generic (
+    --     addrbits : integer;
+    --     databits : integer;
+    --     init_file : string
+    --   );
+    --   port (
+    --     address : in STD_LOGIC_VECTOR (addrbits-1 downto 0);
+    --     clock : in STD_LOGIC;
+    --     data : in STD_LOGIC_VECTOR (databits-1 downto 0);
+    --     wren : in STD_LOGIC;
+    --     q : out STD_LOGIC_VECTOR (databits-1 downto 0)
+    --   );
+    -- end component;
+    
+    component rom
       generic (
         addrbits : integer;
-        databits : integer;
         init_file : string
       );
       port (
-        address : in STD_LOGIC_VECTOR (addrbits-1 downto 0);
-        clock : in STD_LOGIC;
-        data : in STD_LOGIC_VECTOR (databits-1 downto 0);
-        wren : in STD_LOGIC;
-        q : out STD_LOGIC_VECTOR (databits-1 downto 0)
+        clock : in std_logic;
+        ce : in std_logic;
+        q : out std_logic_vector (7 downto 0);
+        a : in std_logic_vector  (addrbits-1 downto 0)
       );
     end component;
-    
+
 
 begin
 
-  keyboard_rom : spram
-  generic map (11,8,"../roms/keyboard.mif")
-  port map (
-   address => std_logic_vector(rom_addr),
-   clock => CLK_14M,
-   data => (others=>'0'),
-   wren => '0',
-   unsigned(q) => rom_out);
+  -- keyboard_rom : spram
+  -- generic map (11,8,"../roms/keyboard.mif")
+  -- port map (
+  --  address => std_logic_vector(rom_addr),
+  --  clock => CLK_14M,
+  --  data => (others=>'0'),
+  --  wren => '0',
+  --  unsigned(q) => rom_out);
 
+
+   keyboard_rom : rom
+   generic map (
+     addrbits => 11,
+     init_file => "../roms/keyboard.hex"
+   )
+   port map (
+     clock => CLK_14M,
+     ce => '1',
+     q => rom_out_s,
+     a => std_logic_vector(rom_addr)
+   );
+  
+  rom_out <= unsigned(rom_out_s);
+ 
   ps2_controller : entity work.PS2_Ctrl port map (
     Clk       => CLK_14M,
     Reset     => reset,
