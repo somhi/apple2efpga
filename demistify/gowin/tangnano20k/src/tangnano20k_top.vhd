@@ -153,7 +153,7 @@ architecture RTL of tangnano20k_top is
 	signal i2s_mclk	    : std_logic;
 
 --
-	signal sdram_addr	: std_logic_vector(12 downto 0);
+	signal sdram_addr	: std_logic_vector(10 downto 0);
 	signal act_led 		: std_logic;
 
 	signal vga_clk5  : std_logic;
@@ -257,7 +257,7 @@ guest: COMPONENT  mist_top
 	CONF_DATA0 => conf_data0,
 
 	--SDRAM
-	SDRAM_DQ => IO_sdram_dq(15 downto 0),
+	SDRAM_DQ => IO_sdram_dq,
 	SDRAM_A => sdram_addr,
 	SDRAM_DQML => O_sdram_dqm(0),
 	SDRAM_DQMH => O_sdram_dqm(1),

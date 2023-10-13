@@ -33,8 +33,8 @@ entity mist_top is
 
     -- SDRAM
     SDRAM_nCS : out std_logic; -- Chip Select
-    SDRAM_DQ : inout std_logic_vector(15 downto 0); -- SDRAM Data bus 16 Bits
-    SDRAM_A : out std_logic_vector(12 downto 0); -- SDRAM Address bus 13 Bits
+    SDRAM_DQ : inout std_logic_vector(31 downto 0); -- SDRAM Data bus 32 Bits
+    SDRAM_A : out std_logic_vector(10 downto 0); -- SDRAM Address bus 11 Bits
     SDRAM_DQMH : out std_logic; -- SDRAM High Data Mask
     SDRAM_DQML : out std_logic; -- SDRAM Low-byte Data Mask
     SDRAM_nWE : out std_logic; -- SDRAM Write Enable
@@ -148,15 +148,16 @@ architecture datapath of mist_top is
   end component mist_sd_card;
 
   component sdram is
-    port( sd_data : inout std_logic_vector(15 downto 0);
-          sd_addr : out std_logic_vector(12 downto 0);
-          sd_dqm : out std_logic_vector(1 downto 0);
+    port( sd_data : inout std_logic_vector(31 downto 0);
+          sd_addr : out std_logic_vector(10 downto 0);
+          sd_dqm : out std_logic_vector(3 downto 0);
           sd_ba : out std_logic_vector(1 downto 0);
           sd_cs : out std_logic;
           sd_we : out std_logic;
           sd_ras : out std_logic;
           sd_cas : out std_logic;
           init_n : in std_logic;
+          ram_ready : out std_logic;
           clk : in std_logic;
           clkref : in std_logic;
           din : in std_logic_vector(7 downto 0);
@@ -252,6 +253,8 @@ architecture datapath of mist_top is
   signal power_on_reset : std_logic := '1';
   signal reset : std_logic;
 
+  signal ram_ready : std_logic;
+
   signal D1_ACTIVE, D2_ACTIVE : std_logic;
   signal TRACK1_RAM_BUSY : std_logic;
   signal TRACK1_RAM_ADDR : unsigned(12 downto 0);
@@ -338,7 +341,7 @@ architecture datapath of mist_top is
   signal sd_sdo:	std_logic;
   
   signal pll_locked : std_logic;
-  signal sdram_dqm: std_logic_vector(1 downto 0);
+  signal sdram_dqm: std_logic_vector(3 downto 0);
   signal joyx       : std_logic;
   signal joyy       : std_logic;
   signal pdl_strobe : std_logic;
@@ -369,7 +372,7 @@ begin
   power_on : process(CLK_14M)
   begin
     if rising_edge(CLK_14M) then
-      reset <= status(0) or power_on_reset;
+      reset <= (status(0) or power_on_reset) or (not ram_ready);
 
       if buttons(1)='1' or status(7) = '1' then
         power_on_reset <= '1';
@@ -496,6 +499,7 @@ begin
               clk => CLK_28M,
               clkref => CLK_2M,
               init_n => pll_locked,
+              ram_ready => ram_ready,
               din => ram_di,
               addr => ram_addr,
               we => ram_we,
