@@ -484,7 +484,7 @@ begin
   -- Original Apple had asynchronous ROMs.  We use a synchronous ROM
   -- that needs its address earlier, hence the odd clock.
   roms : spram
-  generic map (14,8,"../roms/apple2e.hex")
+  generic map (14,8,"../../roms/apple2e.hex")
   port map (
    address => std_logic_vector(rom_addr),
    clock => CLK_14M,

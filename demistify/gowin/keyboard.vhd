@@ -87,7 +87,7 @@ architecture rtl of keyboard is
 begin
 
   keyboard_rom : spram
-  generic map (11,8,"../roms/keyboard.hex")
+  generic map (11,8,"../../roms/keyboard.hex")
   port map (
    address => std_logic_vector(rom_addr),
    clock => CLK_14M,
