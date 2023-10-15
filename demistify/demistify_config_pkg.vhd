@@ -77,9 +77,12 @@ constant demistify_serialdebug : std_logic := '0';
 
 			AUDIO_L  	: out std_logic;
 			AUDIO_R  	: out std_logic;
-   		    UART_RX 	: in std_logic;
+
 			DAC_C_L  : out signed(9 downto 0);
 			DAC_C_R  : out signed(9 downto 0);
+
+			UART_RX 	: in std_logic := '0';
+
     		LED 		: out std_logic
 		);
 	END COMPONENT;
