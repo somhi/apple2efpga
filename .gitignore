@@ -4,3 +4,7 @@ PLLJ_PLLSPE_INFO.txt
 out/
 db/
 incremental_db/
+gwsynthesis
+pnr
+temp
+*.gprj.user

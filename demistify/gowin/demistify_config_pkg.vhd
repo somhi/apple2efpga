@@ -41,8 +41,8 @@ constant demistify_serialdebug : std_logic := '0';
 		PORT
 		(
 			CLOCK_27 		:	 IN STD_LOGIC;
-			SDRAM_DQ		:	 INOUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-			SDRAM_A			:	 OUT STD_LOGIC_VECTOR(12 DOWNTO 0);
+			SDRAM_DQ		:	 INOUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			SDRAM_A			:	 OUT STD_LOGIC_VECTOR(10 DOWNTO 0);
 			SDRAM_DQML		:	 OUT STD_LOGIC;
 			SDRAM_DQMH		:	 OUT STD_LOGIC;
 			SDRAM_nWE		:	 OUT STD_LOGIC;
@@ -69,6 +69,7 @@ constant demistify_serialdebug : std_logic := '0';
 
 			VGA_BLANK	:	 OUT STD_LOGIC;
 			VGA_CLK		:	 OUT STD_LOGIC;
+			VGA_CLK5	:	 OUT STD_LOGIC;			
 			vga_x_hs	:	 OUT STD_LOGIC;
 			vga_x_vs	:	 OUT STD_LOGIC;
 			vga_x_r		:	 OUT STD_LOGIC_VECTOR(5 DOWNTO 0);
@@ -77,12 +78,9 @@ constant demistify_serialdebug : std_logic := '0';
 
 			AUDIO_L  	: out std_logic;
 			AUDIO_R  	: out std_logic;
-
+   		    UART_RX 	: in std_logic;
 			DAC_C_L  : out signed(9 downto 0);
 			DAC_C_R  : out signed(9 downto 0);
-
-			UART_RX 	: in std_logic := '0';
-
     		LED 		: out std_logic
 		);
 	END COMPONENT;

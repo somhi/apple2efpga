@@ -33,8 +33,8 @@ entity mist_top is
 
     -- SDRAM
     SDRAM_nCS : out std_logic; -- Chip Select
-    SDRAM_DQ : inout std_logic_vector(15 downto 0); -- SDRAM Data bus 16 Bits
-    SDRAM_A : out std_logic_vector(12 downto 0); -- SDRAM Address bus 13 Bits
+    SDRAM_DQ : inout std_logic_vector(31 downto 0); -- SDRAM Data bus 32 Bits
+    SDRAM_A : out std_logic_vector(10 downto 0); -- SDRAM Address bus 11 Bits
     SDRAM_DQMH : out std_logic; -- SDRAM High Data Mask
     SDRAM_DQML : out std_logic; -- SDRAM Low-byte Data Mask
     SDRAM_nWE : out std_logic; -- SDRAM Write Enable
@@ -61,6 +61,7 @@ entity mist_top is
 
     VGA_BLANK :  OUT STD_LOGIC;                                             
     VGA_CLK   :  OUT STD_LOGIC;                             
+    VGA_CLK5  :  OUT STD_LOGIC;                             
     vga_x_hs	:	 OUT STD_LOGIC;
     vga_x_vs	:	 OUT STD_LOGIC;
     vga_x_r		:	 OUT STD_LOGIC_VECTOR(5 DOWNTO 0);
@@ -147,15 +148,16 @@ architecture datapath of mist_top is
   end component mist_sd_card;
 
   component sdram is
-    port( sd_data : inout std_logic_vector(15 downto 0);
-          sd_addr : out std_logic_vector(12 downto 0);
-          sd_dqm : out std_logic_vector(1 downto 0);
+    port( sd_data : inout std_logic_vector(31 downto 0);
+          sd_addr : out std_logic_vector(10 downto 0);
+          sd_dqm : out std_logic_vector(3 downto 0);
           sd_ba : out std_logic_vector(1 downto 0);
           sd_cs : out std_logic;
           sd_we : out std_logic;
           sd_ras : out std_logic;
           sd_cas : out std_logic;
           init_n : in std_logic;
+          ram_ready : out std_logic;
           clk : in std_logic;
           clkref : in std_logic;
           din : in std_logic_vector(7 downto 0);
@@ -212,6 +214,8 @@ architecture datapath of mist_top is
     R_in  : in std_logic_vector(5 downto 0);
     G_in  : in std_logic_vector(5 downto 0);
     B_in  : in std_logic_vector(5 downto 0);
+    HBlank : in std_logic;
+    VBlank : in std_logic;     
     HSync : in std_logic;
     VSync : in std_logic;
     R_out : out std_logic_vector(5 downto 0);
@@ -248,6 +252,8 @@ architecture datapath of mist_top is
   signal flash_clk : unsigned(22 downto 0) := (others => '0');
   signal power_on_reset : std_logic := '1';
   signal reset : std_logic;
+
+  signal ram_ready : std_logic;
 
   signal D1_ACTIVE, D2_ACTIVE : std_logic;
   signal TRACK1_RAM_BUSY : std_logic;
@@ -335,7 +341,7 @@ architecture datapath of mist_top is
   signal sd_sdo:	std_logic;
   
   signal pll_locked : std_logic;
-  signal sdram_dqm: std_logic_vector(1 downto 0);
+  signal sdram_dqm: std_logic_vector(3 downto 0);
   signal joyx       : std_logic;
   signal joyy       : std_logic;
   signal pdl_strobe : std_logic;
@@ -353,6 +359,11 @@ architecture datapath of mist_top is
   signal VGA_HSe: std_logic;
   signal VGA_VSe: std_logic;
 
+  signal clk_p      : std_logic;
+  signal clk_p5     : std_logic;
+  signal clk_p5r    : std_logic;
+  signal CLK_14x5   : std_logic;
+
 begin
 
   st_wp <= status(9 downto 8);
@@ -361,7 +372,7 @@ begin
   power_on : process(CLK_14M)
   begin
     if rising_edge(CLK_14M) then
-      reset <= status(0) or power_on_reset;
+      reset <= (status(0) or power_on_reset) or (not ram_ready);
 
       if buttons(1)='1' or status(7) = '1' then
         power_on_reset <= '1';
@@ -378,14 +389,49 @@ begin
   
   SDRAM_CLK <= CLK_28M;
   
-  pll : entity work.mist_clk 
-  port map (
-    areset => '0',
-    inclk0 => CLOCK_27,
-    c0     => CLK_28M,
-    c1     => CLK_14M,
-    locked => pll_locked
-    );
+  -- pll : entity work.mist_clk 
+  -- port map (
+  --   areset => '0',
+  --   inclk0 => CLOCK_27,
+  --   c0     => CLK_28M,
+  --   c1     => CLK_14M,
+  --   locked => pll_locked
+  --   );
+
+
+  pll_p5 : entity work.Gowin_rPLL
+  port map(
+    clkin  => CLOCK_27,
+    clkout => clk_p5,       --140 MHz
+    lock   => pll_locked
+  );
+
+  clk_p5r <= clk_p5;
+
+  pll_p : entity work.Gowin_CLKDIV  
+  port map(
+    clkout => clk_p,        -- 28 MHz
+    hclkin => clk_p5r,
+    resetn => pll_locked
+  );
+
+  CLK_28M <= clk_p;
+
+  process(CLK_28M)
+  begin
+    if rising_edge(CLK_28M) then
+      CLK_14M <= not CLK_14M;
+    end if;
+  end process;
+
+ 
+  process(clk_p5)
+  begin
+    if rising_edge(clk_p5) then
+      CLK_14x5 <= not CLK_14x5;
+    end if;
+  end process;
+
 
 
   -- Paddle buttons
@@ -453,6 +499,7 @@ begin
               clk => CLK_28M,
               clkref => CLK_2M,
               init_n => pll_locked,
+              ram_ready => ram_ready,
               din => ram_di,
               addr => ram_addr,
               we => ram_we,
@@ -533,6 +580,8 @@ begin
     R_in => r_6(7 downto 2),
     G_in => g_6(7 downto 2),
     B_in => b_6(7 downto 2),
+    HBlank => '0',
+    VBlank => '0',
     HSync => hsync,
     VSync => vsync,
     R_out => vga_x_r,
@@ -542,7 +591,8 @@ begin
 
 
     --566x192@59Hz
-    VGA_CLK   <= CLK_14M;  
+    VGA_CLK   <= CLK_14M;   --clk_p;     
+    VGA_CLK5  <= CLK_14x5;  --clk_p5;  
     VGA_BLANK <= not de;
     -- vga_x_r   <= std_logic_vector(r)(7 downto 2);
     -- vga_x_g   <= std_logic_vector(g)(7 downto 2);
@@ -696,7 +746,7 @@ begin
       dac_o 	=> AUDIO_R
       );
 
-  user_io_inst : user_io
+  user_io_inst : entity work.user_io
     generic map (STRLEN => CONF_STR'length)
 
     port map (
@@ -731,6 +781,17 @@ begin
       sd_buff_addr => sd_buff_addr,
       img_mounted => disk_change,
       img_size => disk_size,
+
+      conf_chr => "00000000",
+      ps2_kbd_clk_i => '0',
+      ps2_kbd_data_i => '0',
+      ps2_mouse_clk_i => '0',
+      ps2_mouse_data_i => '0',
+      kbd_out_data => "00000000",
+      kbd_out_strobe => '0',
+      serial_data => "00000000",
+      serial_strobe => '0',
+
       ps2_kbd_clk => ps2Clk,
       ps2_kbd_data => ps2Data
     );

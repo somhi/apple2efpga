@@ -18,13 +18,13 @@
 #
 # Quartus Prime
 # Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-# Date created = 19:41:50  October 11, 2023
+# Date created = 18:46:33  October 13, 2023
 #
 # -------------------------------------------------------------------------- #
 
 QUARTUS_VERSION = "17.1"
-DATE = "19:41:50  October 11, 2023"
+DATE = "18:46:33  October 13, 2023"
 
 # Revisions
 
-PROJECT_REVISION = "apple2efpga_deca"
+PROJECT_REVISION = "apple2efpga_uareloaded"
