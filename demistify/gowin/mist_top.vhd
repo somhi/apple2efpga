@@ -35,8 +35,7 @@ entity mist_top is
     SDRAM_nCS : out std_logic; -- Chip Select
     SDRAM_DQ : inout std_logic_vector(31 downto 0); -- SDRAM Data bus 32 Bits
     SDRAM_A : out std_logic_vector(10 downto 0); -- SDRAM Address bus 11 Bits
-    SDRAM_DQMH : out std_logic; -- SDRAM High Data Mask
-    SDRAM_DQML : out std_logic; -- SDRAM Low-byte Data Mask
+    SDRAM_DQM : out std_logic_vector(3 downto 0); -- SDRAM Data Mask
     SDRAM_nWE : out std_logic; -- SDRAM Write Enable
     SDRAM_nCAS : out std_logic; -- SDRAM Column Address Strobe
     SDRAM_nRAS : out std_logic; -- SDRAM Row Address Strobe
@@ -341,7 +340,6 @@ architecture datapath of mist_top is
   signal sd_sdo:	std_logic;
   
   signal pll_locked : std_logic;
-  signal sdram_dqm: std_logic_vector(3 downto 0);
   signal joyx       : std_logic;
   signal joyy       : std_logic;
   signal pdl_strobe : std_logic;
@@ -484,13 +482,11 @@ begin
   
   -- sdram interface
   SDRAM_CKE <= '1';
-  SDRAM_DQMH <= sdram_dqm(1);
-  SDRAM_DQML <= sdram_dqm(0);
 
   sdram_inst : sdram
     port map( sd_data => SDRAM_DQ,
               sd_addr => SDRAM_A,
-              sd_dqm => sdram_dqm,
+              sd_dqm => SDRAM_DQM,
               sd_cs => SDRAM_nCS,
               sd_ba => SDRAM_BA,
               sd_we => SDRAM_nWE,

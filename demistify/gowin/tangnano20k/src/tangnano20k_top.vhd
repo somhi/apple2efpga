@@ -239,9 +239,6 @@ dac_l_s <= ((not dac_l(9)) & dac_l(8 downto 0) & dac_l(9 downto 4));
 dac_r_s <= ((not dac_r(9)) & dac_r(8 downto 0) & dac_r(9 downto 4));
 	
 O_sdram_addr <= sdram_addr(10 downto 0);
-IO_sdram_dq(31 downto 16) <= "ZZZZZZZZZZZZZZZZ";
-O_sdram_dqm(2) <= '0';
-O_sdram_dqm(3) <= '0';
 
 guest: COMPONENT  mist_top
   port map (
@@ -259,8 +256,7 @@ guest: COMPONENT  mist_top
 	--SDRAM
 	SDRAM_DQ => IO_sdram_dq,
 	SDRAM_A => sdram_addr,
-	SDRAM_DQML => O_sdram_dqm(0),
-	SDRAM_DQMH => O_sdram_dqm(1),
+	SDRAM_DQM => O_sdram_dqm,
 	SDRAM_nWE => O_sdram_wen_n,
 	SDRAM_nCAS => O_sdram_cas_n,
 	SDRAM_nRAS => O_sdram_ras_n,

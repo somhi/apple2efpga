@@ -70,6 +70,7 @@ localparam STATE_READ      = STATE_CMD_CONT + CAS_LATENCY + 4'd1;   //
 localparam STATE_LAST      = 3'd7;   // last state in cycle
 
 assign dout = sd_data[15:0];
+//assign dout = sd_data[31:16];
 
 reg [3:0] q /* synthesis noprune */;
 always @(posedge clk) begin
@@ -164,14 +165,14 @@ always @(posedge clk) begin
 			// is being stored during read. On write only one of the two
 			// bytes is enabled
 			if(!we) sd_dqm <= 4'b0000;
-			else    sd_dqm <= {2'b00, ~aux, aux };
+			else    sd_dqm <= {~aux, aux, ~aux, aux };
 		end
 				
 		// CAS phase 
 		if(q == STATE_CMD_CONT) begin
 			sd_cmd <= we?CMD_WRITE:CMD_READ;
 			if (we) begin
-				sd_data_i <= {16'h0000, din, din};
+				sd_data_i <= {din, din, din, din};
 				oe <= 1;
 			end
 			sd_addr <= { 2'b10, addr[8:0] };  // auto precharge
