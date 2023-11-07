@@ -32,9 +32,9 @@ set FALSE_IN  {SW* PS2_* JOY1* EAR UART_RXD SD_MISO_I}
 # set sysclk ${topmodule}pll|altpll_component|auto_generated|pll1|clk[0]
 # set subclk ${topmodule}pll|altpll_component|auto_generated|pll1|clk[1]
 # set sdram_clk ${topmodule}pll|altpll_component|auto_generated|pll1|clk[0]
-set sysclk "clk_out1_clk_wiz_0"
-set subclk "clk_out2_clk_wiz_0"
-set sdram_clk "clk_out1_clk_wiz_0"
+set sysclk "c0_mist_clk"
+set subclk "c2_mist_clk"
+set sdram_clk "c1_mist_clk"
 
 set_clock_groups -asynchronous -group [get_clocks $subclk] -group spiclk
 set_clock_groups -asynchronous -group [get_clocks $sysclk] -group spiclk
